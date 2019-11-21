@@ -23,9 +23,9 @@ def main():
 
     # make requests
     for req in __request_objects:
-        request_params = {'request-target': req.target_filename}
+        request_params = {'request-target': req['target_filename']}
         future_request = session.get(__url, params=request_params)
-        live_requests.push(future_request)
+        live_requests.append(future_request)
 
     print("\nwaiting for results...")
 
