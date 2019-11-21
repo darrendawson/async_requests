@@ -19,11 +19,15 @@ def main():
     session = FuturesSession()
     live_requests = []
 
+    print("starting threads...")
+
     # make requests
     for req in __request_objects:
         request_params = {'request-target': req.target_filename}
         future_request = session.get(__url, params=request_params)
         live_requests.push(future_request)
+
+    print("\nwaiting for results...")
 
     # print results
     for req in live_requests:
